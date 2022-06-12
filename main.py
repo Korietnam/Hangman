@@ -4,7 +4,6 @@ import random
 
 chosen_word = random.choice(words.word_list)
 word_length = len(chosen_word)
-
 end_of_game = False
 lives = 6
 
@@ -15,7 +14,7 @@ guessed_letters = []
 for _ in range(word_length):
 	display += "_"
 
-print(f'Pssst, the solution is {chosen_word}.')
+# print(f'Pssst, the solution is {chosen_word}.')
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
@@ -28,10 +27,10 @@ while not end_of_game:
             letter = chosen_word[position]
             if letter == guess:
                 display[position] = letter
-                print("Correct!")
+                print(f"Correct! You guessed {guess}")
         if guess not in chosen_word:
             lives -= 1
-            print("Incorrect!")
+            print(f"Incorrect! You guessed {guess}")
         if lives == 0:
             end_of_game = True
             print(f"You lose! womp womp\nThe word was: {chosen_word}")
